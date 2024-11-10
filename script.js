@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Load saved logs from local storage when the page loads
+    loadLogs();
     switchProfile('Noor'); // Default profile on load
 });
 
@@ -29,11 +31,21 @@ function logPoopEntry() {
             note: note
         });
 
+        // Save updated logs to local storage
+        localStorage.setItem('poopLogs', JSON.stringify(poopLogs));
+
         updateMonthlySummary();
         document.getElementById('status-message').textContent = `Logged 1 poop for ${currentProfile} on ${fullDate}`;
         document.getElementById('poop-note').value = ''; // Clear note input
     } else {
         document.getElementById('status-message').textContent = 'Please add a note before logging.';
+    }
+}
+
+function loadLogs() {
+    const savedLogs = localStorage.getItem('poopLogs');
+    if (savedLogs) {
+        Object.assign(poopLogs, JSON.parse(savedLogs));
     }
 }
 
