@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poop Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Poop Tracker for Noor and Manal</h1>
+        <div id="profile-switch">
+            <button onclick="switchProfile('Noor')">Noor's Profile</button>
+            <button onclick="switchProfile('Manal')">Manal's Profile</button>
+        </div>
+        <h2 id="profile-name">Noor's Profile</h2>
+        <div id="log-section">
+            <textarea id="poop-note" placeholder="Add a note about your experience..."></textarea>
+            <button onclick="logPoopEntry()">Log Poop</button>
+            <p id="status-message"></p>
+        </div>
+        <div id="month-summary">
+            <h3>Monthly Log</h3>
+            <ul id="summary-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
